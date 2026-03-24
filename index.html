@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Painel do Tempo</title>
+    </head>
+<body>
+    <div class="cartao">
+        <h2>☁️ Radar do Tempo</h2>
+        <input 
+        type="text"
+        id="inputCidade"
+        placeholder="Ex.: Itajaí, Blumenau..."
+        >
+        <button type="button" onclick="consultarTempo()">Pesquisar</button>
+        <div id="resultado">Aguardando pesquisa</div>
+    </div>
+    <script>
+        function consultarTempo() {
+            let cidadeDigitada = document.getElementById('inputCidade').value;
+            let areaResultado = document.getElementById('resultado');
+    
+            if (cidadeDigitada === "") {
+                areaResultado.innerHTML = "Digite a cidade";
+                return; 
+            }
+
+        areaResultado.innerHTML = "Procurando...";
+
+        const url = `https://wttr.in/${cidadeDigitada}?format=j1`;
+        
+            fetch(url)
+                .then(resposta => {
+                    //Erro 404 NOT FOUND
+                    if (resposta.status === 404) {
+                        throw new Error("Erro 404: Cidade não encontrada no armazém de dados!");
+                    }
+                    if (!resposta.ok) {
+                        throw new Error("Erro 500: O servidor não está a responder!");
+                    }
+                    // Se o status for 200 (OK), transforma o pacote em JSON
+                    return resposta.json(); 
+                })
+                .then(dados => {
+                    //Pega apenas a temperatura
+                    const temperatura = dados.current_condition[0].temp_C;
+                    areaResultado.innerHTML = `Lá em <strong>${cidadeDigitada}</strong> estão <strong>${temperatura}°C</strong> neste momento. 🌡️`;
+                })
+                .catch(erro => {
+                    
+                    areaResultado.innerHTML = `<span style="color: red;">${erro.message}</span>`;
+                });
+        }
+    </script>
+
+</body>
+</html>
