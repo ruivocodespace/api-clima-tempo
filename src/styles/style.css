@@ -1,27 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
-*{
+/*estilos gerais da pagina */
+* {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-body {
+/* estilo do body*/
+body  {
     display: flex;
-    align-items: center;
+	background: linear-gradient(#3b82f6, #4a7dff);
     justify-content: center;
+    align-items: center;
+    padding: 20px;
     min-height: 100vh;
-    background-color: linear-gradient(#3b82fd, #4a7dff);
 }
 
+/* estilo da div container */
 #container {
-    background-color: aliceblue;
+    background-color: #bdbdbd;
     border-radius: 20px;
     padding: 18px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
+/*search style */
 #search {
     display: flex;
     align-items: center;
@@ -29,4 +33,82 @@ body {
     border: 1px solid #bdbdbd;
     border-radius: 10px;
     padding: 4px 12px;
+}
+#search button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#search input {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    width: 100%;
+}
+
+#search input:focus-visible {
+    outline: none;
+}
+
+#search button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* div weather
+#weather {
+    display: none;
+    margin-top: 20px;   
+}
+
+#weather.show {
+    display: block;
+
+}
+
+#weather #title {
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #372f3f;
+}*/
+
+#temp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: linear-gradient(90deg, #5a7cdc, #606dde);
+    color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#temp_img{
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+#temp_value{
+
+}
+
+#temp_description{
+
+}
+
+#other_infos{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+#other_infos .info{
+    color: #fff;
+    background-color: ;
+
+
 }
