@@ -92,10 +92,15 @@ body  {
 }
 
 #temp_value{
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 55px;
 
 }
 
 #temp_description{
+    font-weight: 500;
+    text-transform: capitalize;
 
 }
 
@@ -107,8 +112,23 @@ body  {
 }
 
 #other_infos .info{
-    color: #fff;
-    background-color: ;
+    background-color: #fff;
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    justify-content: center;
+}
 
+#other_infos .info h2{
+    font-size: 18px;
+    font-weight: 500;
+    color: #372f3f;
+}
 
+#other_infos .info i{
+    font-size: 16px;
+    font-weight: 600;
+    color: #372f3f;
 }
