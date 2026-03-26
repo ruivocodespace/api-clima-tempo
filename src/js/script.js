@@ -22,18 +22,19 @@ async function searchCity(event){
 
         //5- atualiza o conteúdo da página com as informações do clima para a cidade pesquisada
         document.getElementById("title").innerHTML = `${dadosClima.name}, ${dadosClima.sys.country}`;
-        document.getElementById("temp_value").innerHTML = `${dadosClima.main.temp}°C`;
+        document.getElementById("temp_value").innerHTML = `${Math.round(dadosClima.main.temp)}°C`;
         document.getElementById("temp_description").textContent =`${dadosClima.weather[0].description}`;
 
         document.querySelector('#temp_img').setAttribute('src', `https://openweathermap.org/img/wn/${dadosClima.weather[0].icon}@2x.png`);
 
         document.getElementById("humidity").textContent = `${dadosClima.main.humidity}%`;
-        document.getElementById("temp_min").innerHTML = `${dadosClima.main.temp_min}°C`;
-        document.getElementById("temp_max").innerHTML = `${dadosClima.main.temp_max}°C`;
+        document.getElementById("temp_min").innerHTML = `${Math.round(dadosClima.main.temp_min)}°C`;
+        document.getElementById("temp_max").innerHTML = `${Math.round(dadosClima.main.temp_max)}°C`;
         document.getElementById("wind").textContent = `${dadosClima.wind.speed}km/h`;
 
         //Limpa erros anteriores, se houver
         document.getElementById("alert").innerHTML = "";
+        document.getElementById("weather").classList.add("show");
 
    } 
    //6- se a cidade não for encontrada ou ocorrer um erro na requisição, exibe uma mensagem de erro para o usuário

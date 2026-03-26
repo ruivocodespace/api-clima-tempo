@@ -58,7 +58,7 @@ body  {
 }
 
 
-/* div weather
+/* div weather */
 #weather {
     display: none;
     margin-top: 20px;   
@@ -74,7 +74,7 @@ body  {
     margin-bottom: 5px;
     font-weight: 600;
     color: #372f3f;
-}*/
+}
 
 #temp {
     display: flex;
